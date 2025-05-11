@@ -1,25 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ApiModule, Configuration } from './api';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DoctorComponent } from './doctor.component';
-import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
-  declarations: [AppComponent, DoctorComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    ApiModule.forRoot(() => new Configuration({
-      basePath: 'http://localhost:8080'
-    })),
-    FormsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-
-export class AppModule {}
+export class AppModule { }
 

@@ -1,15 +1,35 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { DoctorComponent } from './doctor.component';
+
+interface Card {
+  title: string;
+  route: string;
+}
 
 @Component({
-  selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, DoctorComponent],
+  selector: 'app-root',
+  imports: [CommonModule],  // Provides NgFor and other common directives
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-emrks';
+
+  cards: Card[] = [
+    { title: 'Appointments', route: '/appointments/new' },
+    { title: 'Patient Dashboard', route: '/patients' },
+    { title: 'View Doctors', route: '/doctors' },
+    { title: 'View Pharmacy', route: '/pharmacy' },
+    { title: 'Insurance Details', route: '/insurance' },
+    { title: 'Medical Tests', route: '/tests' }
+  ];
+
+  constructor(private router: Router) {}
+
+  navigate(route: string): void {
+    this.router.navigate([route]);
+  }
 }
+
+
