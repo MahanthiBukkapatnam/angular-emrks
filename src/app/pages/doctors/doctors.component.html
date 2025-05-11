@@ -1,0 +1,44 @@
+<div class="doctors-container">
+  <h2>Manage Doctors</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      SSN:
+      <input formControlName="dssn" placeholder="e.g. 123-45-6789" />
+    </label>
+    <label>
+      Name:
+      <input formControlName="name" />
+    </label>
+    <label>
+      Start Date:
+      <input type="date" formControlName="startDate" />
+    </label>
+    <label>
+      Specialty:
+      <input formControlName="specialty" />
+    </label>
+    <label>
+      Office Name:
+      <input formControlName="officeName" />
+    </label>
+
+    <button type="submit" [disabled]="form.invalid">
+      {{ editing ? 'Update' : 'Add' }} Doctor
+    </button>
+    <button type="button" (click)="reset()" *ngIf="editing">Cancel</button>
+  </form>
+
+  <hr />
+
+  <ul class="doctor-list">
+    <li *ngFor="let d of doctors">
+      <strong>{{ d.name }}</strong> ({{ d.dssn }}) — {{ d.specialty }}
+      <small>Started: {{ d.startDate | date }}</small>
+      <em>{{ d.officeName }}</em>
+
+      <button (click)="edit(d)">Edit</button>
+      <button (click)="delete(d.dssn)">Delete</button>
+    </li>
+  </ul>
+</div>

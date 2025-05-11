@@ -1,0 +1,25 @@
+.left-nav {
+  width: 200px;
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 1rem;
+}
+.left-nav h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+.left-nav ul {
+  list-style: none;
+  padding: 0;
+}
+.left-nav li + li {
+  margin-top: 0.5rem;
+}
+.left-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+.left-nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}

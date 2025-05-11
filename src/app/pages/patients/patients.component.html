@@ -1,0 +1,49 @@
+
+<div class="patients-container">
+  <h2>Manage Patients</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      SSN:
+      <input formControlName="pssn" placeholder="e.g. 123-45-6789" />
+    </label>
+    <label>
+      Name:
+      <input formControlName="name" />
+    </label>
+    <label>
+      Birth Date:
+      <input type="date" formControlName="bday" />
+    </label>
+    <label>
+      Contact Info:
+      <input formControlName="contactInfo" />
+    </label>
+    <label>
+      Allergies:
+      <input formControlName="allergies" />
+    </label>
+    <label>
+      Company Name:
+      <input formControlName="companyName" />
+    </label>
+
+    <button type="submit" [disabled]="form.invalid">
+      {{ editing ? 'Update' : 'Add' }} Patient
+    </button>
+    <button type="button" (click)="reset()" *ngIf="editing">Cancel</button>
+  </form>
+
+  <hr />
+
+  <ul class="patient-list">
+    <li *ngFor="let p of patients">
+      <strong>{{ p.name }}</strong> ({{ p.pssn }})
+      <small>Birthday : {{ p.bday | date }}</small>
+      <em>{{ p.companyName }}</em>
+
+      <button (click)="edit(p)">Edit</button>
+      <button (click)="delete(p.pssn)">Delete</button>
+    </li>
+  </ul>
+</div>

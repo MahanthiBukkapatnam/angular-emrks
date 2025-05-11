@@ -1,37 +1,6 @@
-
-  <table border="0">
-    <tr>
-      <td><img src="assets/images/electronic-medical-records-1042687514.gif" alt="EMRKS Logo" class="logo" width="100" height="100" /></td>
-      <td>
-        <h2 class="app-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Electronic Medical Record Keeping System</h2>
-      </td>
-    </tr>
-  </table>
-
-  <div class="app-layout">
-
-    <aside class="sidebar">
-      <ul class="menu">
-        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/appointments/new" routerLinkActive="active">Appointments</a></li>
-        <li><a routerLink="/patients" routerLinkActive="active">Patient Dashboard</a></li>
-        <li><a routerLink="/doctors" routerLinkActive="active">View Doctors</a></li>
-        <li><a routerLink="/pharmacy" routerLinkActive="active">View Pharmacy</a></li>
-        <li><a routerLink="/insurance" routerLinkActive="active">Insurance Details</a></li>
-        <li><a routerLink="/tests" routerLinkActive="active">Medical Tests</a></li>
-      </ul>
-    </aside>
-
-    <div class="card-grid">
-      <div
-        *ngFor="let card of cards"
-        class="card"
-        (click)="navigate(card.route)"
-        role="button"
-        tabindex="0"
-      >
-        {{ card.title }}
-      </div>
-    </div>
-
-  </div>
+<div class="app-container">
+  <app-left-nav></app-left-nav>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

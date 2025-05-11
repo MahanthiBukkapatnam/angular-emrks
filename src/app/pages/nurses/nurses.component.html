@@ -1,0 +1,40 @@
+
+<div class="nurses-container">
+  <h2>Manage Nurses</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      SSN:
+      <input formControlName="nssn" placeholder="e.g. 123-45-6789" />
+    </label>
+    <label>
+      Name:
+      <input formControlName="name" />
+    </label>
+    <label>
+      Contact Info:
+      <input formControlName="contactInfo" />
+    </label>
+    <label>
+      Office Name:
+      <input formControlName="officeName" />
+    </label>
+
+    <button type="submit" [disabled]="form.invalid">
+      {{ editing ? 'Update' : 'Add' }} Nurse
+    </button>
+    <button type="button" (click)="reset()" *ngIf="editing">Cancel</button>
+  </form>
+
+  <hr />
+
+  <ul class="nurse-list">
+    <li *ngFor="let n of nurses">
+      <strong>{{ n.name }}</strong> ({{ n.nssn }})
+      <em>{{ n.officeName }}</em>
+
+      <button (click)="edit(n)">Edit</button>
+      <button (click)="delete(n.nssn)">Delete</button>
+    </li>
+  </ul>
+</div>

@@ -1,16 +1,5 @@
-import { bootstrapApplication }           from '@angular/platform-browser';
-import { AppComponent }                   from './app/app.component';
-import { FormsModule }                    from '@angular/forms';
-import { HttpClientModule }               from '@angular/common/http';
-import { importProvidersFrom }            from '@angular/core';
-import { provideHttpClient, withFetch  }  from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
 
-bootstrapApplication(AppComponent,{
-  providers: [
-    importProvidersFrom(FormsModule),
-    provideHttpClient(withFetch()), provideAnimationsAsync()
-  ]
-}).catch((err) => console.error(err));
-
-
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
