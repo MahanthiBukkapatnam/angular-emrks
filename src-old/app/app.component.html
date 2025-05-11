@@ -1,0 +1,15 @@
+
+
+<main class="home-container">
+  <h1 class="app-title">Electronic Medical Record Keeping System</h1>
+  <div class="card-grid">
+    <a *ngFor="let card of cards" [routerLink]="card.route" class="card">
+      <mat-icon class="card-icon">{{ card.icon }}</mat-icon>
+      <span class="card-title">{{ card.title }}</span>
+    </a>
+  </div>
+</main>
+
+
+<router-outlet></router-outlet>
+

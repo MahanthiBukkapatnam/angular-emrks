@@ -1,0 +1,65 @@
+<h2>Doctors</h2>
+
+<h3>List of Doctors </h3>
+
+<ul>
+  <li *ngFor="let d of doctors; trackBy: trackBySSN">
+    {{ d.dssn }} -{{ d.name }} - {{ d.specialty }}
+  </li>
+</ul>
+
+
+<form #doctorForm="ngForm" (ngSubmit)="onSubmit(doctorForm)">
+  <table border="0">
+    <tr>
+      <td>
+        <label for="id">ID</label>
+      </td>
+      <td>
+        <input id="id" name="dssn" [(ngModel)]="doctor.dssn" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="name">Name</label>
+      </td>
+      <td>
+        <input id="name" name="name" [(ngModel)]="doctor.name" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="startDate">Start Date</label>
+      </td>
+      <td>
+        <input id="startDate" name="startDate" type="date" [(ngModel)]="doctor.startDate" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="specialty">Specialty</label>
+      </td>
+      <td>
+        <input id="specialty" name="specialty" [(ngModel)]="doctor.specialty" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="officeName">Office</label>
+      </td>
+      <td>
+        <input id="officeName" name="officeName" [(ngModel)]="doctor.officeName" required/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <button type="submit">{{ selectedDoctorId ? 'Update' : 'Create' }} Doctor</button>&nbsp; &nbsp;
+        <button type="button" (click)="resetForm(doctorForm)">Cancel</button>
+      </td>
+    </tr>
+  </table>
+
+</form>
+

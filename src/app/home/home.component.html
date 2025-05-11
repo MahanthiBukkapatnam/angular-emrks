@@ -1,0 +1,15 @@
+<main role="main" class="home-container">
+  <h1 class="app-title">Electronic Medical Record Keeping System</h1>
+
+  <div class="card-grid">
+    <div
+      *ngFor="let card of cards"
+      class="card"
+      (click)="navigate(card.route)"
+      role="button"
+      tabindex="0"
+    >
+      {{ card.title }}
+    </div>
+  </div>
+</main>
